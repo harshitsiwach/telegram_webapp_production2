@@ -20,8 +20,8 @@ const adminAccount = privateKeyToAccount({
   client,
 });
 
-// Verify the Telegram signature
-export async function verifyTelegram(signature: string, message: string) {
+// Function to verify the Telegram signature
+async function verifyTelegram(signature: string, message: string) {
   const metadata = JSON.parse(message);
 
   // Check if the message is expired or invalid
@@ -68,4 +68,3 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
-
