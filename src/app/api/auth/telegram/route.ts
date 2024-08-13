@@ -43,7 +43,7 @@ export async function verifyTelegram(signature: string, message: string) {
   return metadata.username;
 }
 
-export async function POST(request: NextRequest) {
+export default async function POST(request: NextRequest) {
   const { payload } = await request.json();
   const { signature, message } = JSON.parse(payload);
 
